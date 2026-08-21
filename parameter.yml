@@ -1,0 +1,66 @@
+# fabric-cicd parameter file
+# https://microsoft.github.io/fabric-cicd/latest/how_to/parameterization/
+#
+# Handles the values that CANNOT be made dynamic through pipeline parameters or the
+# VL_PlatformConfig variable library:
+#   - Connection IDs inside externalReferences.connection blocks (pipeline JSON)
+#   - The default_lakehouse / default_lakehouse_workspace_id in each notebook's
+#     Fabric attachment metadata (# META block at the top of notebook-content.py)
+#
+# Everything else (workspace/lakehouse IDs used INSIDE pipeline logic, control DB name,
+# timezone, batch sizes) is resolved at runtime via VL_PlatformConfig - see EnvSettings
+# notebook - and does not need an entry here.
+#
+# "Dev" is not listed as a target: the values below ARE the Dev/source values already
+# committed in the repo, so no replacement runs when deploying to Dev. Fill in the
+# REPLACE-WITH-* placeholders for Test and Prod once those workspaces/connections exist.
+
+find_replace:
+
+  # --- Control DB connection (Azure SQL / Fabric SQL DB stored-proc connection) ---
+  # Used by: Master ELT ASQL, Ingest ASQL Table, Level1 Transform, Master Level1 Transform
+  - find_value: "78e8d795-a55c-412e-9b76-47ba404b4d51"
+    replace_value:
+      Test: "REPLACE-WITH-TEST-CONTROLDB-CONNECTION-ID"
+      Prod: "REPLACE-WITH-PROD-CONTROLDB-CONNECTION-ID"
+    item_type: "DataPipeline"
+
+  # --- Source Azure SQL connection (the system being ingested from, e.g. WWI) ---
+  # Used by: Ingest ASQL Table
+  - find_value: "a0a57e51-5032-4e46-b0f0-493c9d2f51c9"
+    replace_value:
+      Test: "REPLACE-WITH-TEST-SOURCE-DB-CONNECTION-ID"
+      Prod: "REPLACE-WITH-PROD-SOURCE-DB-CONNECTION-ID"
+    item_type: "DataPipeline"
+
+  # --- Bronze lakehouse linked service (Copy activity sink) ---
+  # Used by: Ingest ASQL Table
+  - find_value: "84da5653_bc83_445d_8f44_e1371107aad4"
+    replace_value:
+      Test: "REPLACE-WITH-TEST-BRONZE-LINKEDSERVICE-NAME"
+      Prod: "REPLACE-WITH-PROD-BRONZE-LINKEDSERVICE-NAME"
+    item_type: "DataPipeline"
+
+  # --- Workspace ID baked into every notebook's default-lakehouse attachment metadata ---
+  # This is the workspace GUID shared by both lakehouses in Dev (8d8d00a7-...).
+  # Restricted to Notebook items so it does not touch anything else that happens to
+  # contain this string.
+  - find_value: "8d8d00a7-0e8a-4e3b-8c0e-8dcafac7adec"
+    replace_value:
+      Test: "REPLACE-WITH-TEST-WORKSPACE-ID"
+      Prod: "REPLACE-WITH-PROD-WORKSPACE-ID"
+    item_type: "Notebook"
+
+  # --- Bronze lakehouse ID baked into notebook attachment metadata ---
+  - find_value: "c6c5024f-de55-45ca-a79a-decbe16235e3"
+    replace_value:
+      Test: "REPLACE-WITH-TEST-BRONZE-LAKEHOUSE-ID"
+      Prod: "REPLACE-WITH-PROD-BRONZE-LAKEHOUSE-ID"
+    item_type: "Notebook"
+
+  # --- Silver lakehouse ID baked into notebook attachment metadata ---
+  - find_value: "cc80a0ab-603d-4df9-bdfc-c35a7e8ab095"
+    replace_value:
+      Test: "REPLACE-WITH-TEST-SILVER-LAKEHOUSE-ID"
+      Prod: "REPLACE-WITH-PROD-SILVER-LAKEHOUSE-ID"
+    item_type: "Notebook"
