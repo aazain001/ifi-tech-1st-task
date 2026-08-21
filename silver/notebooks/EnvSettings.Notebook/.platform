@@ -1,0 +1,12 @@
+   {
+    "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+    "metadata": {
+        "type": "Notebook",
+        "displayName": "EnvSettings",
+        "description": "Resolves environment-specific config (lakehouse IDs, control DB name, timezone) from VL_PlatformConfig. Included via %run by every other notebook - do not run standalone."
+    },
+    "config": {
+        "version": "2.0",
+        "logicalId": "d986bd69-41e8-4261-b299-a589254d8509"
+    }
+}
