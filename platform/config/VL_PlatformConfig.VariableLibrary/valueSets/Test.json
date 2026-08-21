@@ -1,0 +1,24 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/variableLibrary/definition/valueSet/1.0.0/schema.json",
+  "name": "Test",
+  "variableOverrides": [
+    {
+      "name": "ControlDatabaseName",
+      "value": "REPLACE-WITH-TEST-CONTROLDB-NAME"
+    },
+    {
+      "name": "BronzeLakehouse",
+      "value": {
+        "itemId": "REPLACE-WITH-TEST-BRONZE-LAKEHOUSE-ID",
+        "workspaceId": "REPLACE-WITH-TEST-WORKSPACE-ID"
+      }
+    },
+    {
+      "name": "SilverLakehouse",
+      "value": {
+        "itemId": "REPLACE-WITH-TEST-SILVER-LAKEHOUSE-ID",
+        "workspaceId": "REPLACE-WITH-TEST-WORKSPACE-ID"
+      }
+    }
+  ]
+}

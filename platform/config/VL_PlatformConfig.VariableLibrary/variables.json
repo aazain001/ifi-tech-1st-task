@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/variableLibrary/definition/variables/1.0.0/schema.json",
+  "variables": [
+    {
+      "name": "ControlDatabaseName",
+      "note": "Fabric SQL Database item name/connection target for the ELT control schema. Was hardcoded as a literal in several pipelines.",
+      "type": "String",
+      "value": "controlDB-78d6902e-70ea-4fb0-b51e-af3f2aaee3b7"
+    },
+    {
+      "name": "BronzeLakehouse",
+      "note": "Bronze layer lakehouse. Replaces the hardcoded BronzeWorkspaceID/BronzeObjectID pipeline parameter defaults.",
+      "type": "ItemReference",
+      "value": {
+        "itemId": "c6c5024f-de55-45ca-a79a-decbe16235e3",
+        "workspaceId": "8d8d00a7-0e8a-4e3b-8c0e-8dcafac7adec"
+      }
+    },
+    {
+      "name": "SilverLakehouse",
+      "note": "Silver layer lakehouse. Replaces the hardcoded SilverWorkspaceID/SilverObjectID pipeline parameter defaults.",
+      "type": "ItemReference",
+      "value": {
+        "itemId": "cc80a0ab-603d-4df9-bdfc-c35a7e8ab095",
+        "workspaceId": "8d8d00a7-0e8a-4e3b-8c0e-8dcafac7adec"
+      }
+    },
+    {
+      "name": "GoldLakehouse",
+      "note": "PLACEHOLDER - no Gold lakehouse item exists in this repo yet. Replace itemId once one is created; do not leave as all-zero in Test/Prod value sets.",
+      "type": "ItemReference",
+      "value": {
+        "itemId": "00000000-0000-0000-0000-000000000000",
+        "workspaceId": "8d8d00a7-0e8a-4e3b-8c0e-8dcafac7adec"
+      }
+    },
+    {
+      "name": "TimeZone",
+      "note": "Windows time zone ID used by ELT.uf_GetAestDateTime and GetIngestDefinition. Was hardcoded as 'AUS Eastern Standard Time' in T-SQL.",
+      "type": "String",
+      "value": "AUS Eastern Standard Time"
+    },
+    {
+      "name": "MaxIngestInstance",
+      "note": "Row cap passed to ELT.GetIngestDefinition. Was a hardcoded literal '100' in the Master ELT ASQL pipeline's Lookup activity.",
+      "type": "Integer",
+      "value": 100
+    },
+    {
+      "name": "MaxTransformInstance",
+      "note": "Row cap passed to the Level1 transform lookup. Kept in sync with MaxIngestInstance by convention, not by mechanism.",
+      "type": "Integer",
+      "value": 100
+    }
+  ]
+}
