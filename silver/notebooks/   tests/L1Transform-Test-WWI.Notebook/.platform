@@ -1,0 +1,12 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+    "metadata": {
+        "type": "Notebook",
+        "displayName": "L1Transform-Test-WWI",
+        "description": "Test harness that runs L1Transform-Generic-Fabric with WideWorldImporters sample values. Not part of the production pipeline - run manually to smoke-test the generic notebook after changes."
+    },
+    "config": {
+        "version": "2.0",
+        "logicalId": "ac7f139a-d961-43d4-8bac-08bf7504fb43"
+    }
+}
