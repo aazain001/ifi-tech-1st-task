@@ -279,7 +279,7 @@
     "parameters": {
       "SourceSystemName": {
         "type": "string",
-        "defaultValue": "WWI"
+        "defaultValue": ""
       },
       "StreamName": {
         "type": "string"

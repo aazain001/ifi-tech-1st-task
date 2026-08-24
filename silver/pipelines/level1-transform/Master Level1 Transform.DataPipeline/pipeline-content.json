@@ -226,11 +226,11 @@
     "parameters": {
       "SourceSystemName": {
         "type": "string",
-        "defaultValue": "WWI"
+        "defaultValue": ""
       },
       "StreamName": {
         "type": "string",
-        "defaultValue": "People"
+        "defaultValue": ""
       },
       "MaxTransformInstance": {
         "type": "int",

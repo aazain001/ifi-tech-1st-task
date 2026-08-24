@@ -845,11 +845,11 @@
       },
       "InputRawFileFolder": {
         "type": "string",
-        "defaultValue": "raw-bronze/wwi/Sales/Orders/2013-01"
+        "defaultValue": ""
       },
       "InputRawFile": {
         "type": "string",
-        "defaultValue": "Sales_Orders_2013-01-01_000000.parquet"
+        "defaultValue": ""
       },
       "InputRawFileDelimiter": {
         "type": "string"

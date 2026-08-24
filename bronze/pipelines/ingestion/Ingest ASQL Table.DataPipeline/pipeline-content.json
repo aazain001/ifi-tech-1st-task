@@ -950,7 +950,7 @@
       },
       "SourceDatabase": {
         "type": "string",
-        "defaultValue": "WideWorldImporters"
+        "defaultValue": ""
       },
       "ControlDatabase": {
         "type": "string",
@@ -958,15 +958,15 @@
       },
       "SourceSystemName": {
         "type": "string",
-        "defaultValue": "WWI"
+        "defaultValue": ""
       },
       "StreamName": {
         "type": "string",
-        "defaultValue": "BuyingGroups"
+        "defaultValue": ""
       },
       "EntityName": {
         "type": "string",
-        "defaultValue": "Sales.BuyingGroups"
+        "defaultValue": ""
       },
       "WatermarkColName": {
         "type": "string"
@@ -1037,19 +1037,19 @@
       },
       "DestinationRawFolder": {
         "type": "string",
-        "defaultValue": "raw-bronze/wwi/Sales/BuyingGroups/1900-01"
+        "defaultValue": ""
       },
       "DestinationRawFile": {
         "type": "string",
-        "defaultValue": "Sales_BuyingGroups_1900-01-01_000000.parquet"
+        "defaultValue": ""
       },
       "SourceSQL": {
         "type": "string",
-        "defaultValue": "SELECT * FROM Sales.BuyingGroups"
+        "defaultValue": ""
       },
       "StatSQL": {
         "type": "string",
-        "defaultValue": "SELECT '1900-01-01 00:00:00' AS DataFromTimestamp, '2024-10-03 18:57:36' AS DataToTimestamp, COUNT(*) AS SourceCount FROM Sales.BuyingGroups"
+        "defaultValue": ""
       },
       "ReloadFlag": {
         "type": "bool",
