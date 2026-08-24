@@ -1,0 +1,27 @@
+name: Parameter Decoupling Validation
+
+# Enforces what devops_framework_v1.txt already documents as a required gate:
+# no hardcoded workspace names, connection IDs, or environment-specific values
+# committed to deployable Fabric items. See .ci/check_hardcoded_values.py for
+# what's actually being checked and why.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check-hardcoded-values:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run parameter decoupling check
+        run: python3 .ci/check_hardcoded_values.py
