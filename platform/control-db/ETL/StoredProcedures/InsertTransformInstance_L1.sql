@@ -48,7 +48,7 @@ AS
 BEGIN
 
 
-DECLARE @localdate as datetime	= CONVERT(datetime,CONVERT(datetimeoffset, getdate()) at time zone 'AUS Eastern Standard Time')
+DECLARE @localdate as datetime	= ELT.uf_GetAestDateTime()
 
 DECLARE @ExistsCount int = 0;
 

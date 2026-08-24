@@ -15,7 +15,7 @@ CREATE PROCEDURE [ELT].[UpdateTransformInstance_L2]
 AS
 BEGIN
 
-	DECLARE @localdate datetime	= CONVERT(datetime,CONVERT(datetimeoffset, getdate()) at time zone 'AUS Eastern Standard Time')
+	DECLARE @localdate datetime	= ELT.uf_GetAestDateTime()
 
 		Update 
 			[ELT].[L2TransformInstance]

@@ -54,7 +54,7 @@ CREATE PROCEDURE [ELT].[InsertTransformInstance_L2]
 AS
 BEGIN
 
-DECLARE @localdate as datetime	= CONVERT(datetime,CONVERT(datetimeoffset, getdate()) at time zone 'AUS Eastern Standard Time')
+DECLARE @localdate as datetime	= ELT.uf_GetAestDateTime()
 
 	--Check if Transformation records already exists for the input file for same transformation e.g it's a reload
 		IF NOT EXISTS 

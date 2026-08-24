@@ -3,7 +3,7 @@ CREATE PROCEDURE [ELT].[GetTransformDefinition_L1]
 		@DeltaDate datetime = null 			
 AS
 	--declare @IngestID int 
-	DECLARE @localdate datetime	= CONVERT(datetime,CONVERT(datetimeoffset, getdate()) AT TIME ZONE 'AUS Eastern Standard Time')
+	DECLARE @localdate datetime	= ELT.uf_GetAestDateTime()
 	DECLARE @CuratedDate datetime
 	SET @CuratedDate = COALESCE(@DeltaDate,@localdate)
 

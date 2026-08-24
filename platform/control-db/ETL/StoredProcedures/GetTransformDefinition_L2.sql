@@ -4,7 +4,7 @@ CREATE PROCEDURE [ELT].[GetTransformDefinition_L2]
 		@DeltaDate datetime = NULL,
 		@InputType varchar(15) = NULL
 AS
-	DECLARE @localdate datetime	= CONVERT(datetime,CONVERT(datetimeoffset, getdate()) at time zone 'AUS Eastern Standard Time')
+	DECLARE @localdate datetime	= ELT.uf_GetAestDateTime()
 
 	--Should be using L2DeltaTransformDate, if null then LocalDate
 		SELECT

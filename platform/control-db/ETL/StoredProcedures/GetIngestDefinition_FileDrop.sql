@@ -69,7 +69,7 @@ BEGIN
 	--If this is a new file
 		BEGIN
 
-		DECLARE @localdate as datetime	= CONVERT(datetime,CONVERT(datetimeoffset, getdate()) at time zone 'AUS Eastern Standard Time')
+		DECLARE @localdate as datetime	= ELT.uf_GetAestDateTime()
 
 		SELECT 
 			[IngestID]
