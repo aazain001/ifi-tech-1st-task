@@ -954,7 +954,7 @@
       },
       "ControlDatabase": {
         "type": "string",
-        "defaultValue": "controlDB-78d6902e-70ea-4fb0-b51e-af3f2aaee3b7"
+        "defaultValue": ""
       },
       "SourceSystemName": {
         "type": "string",
@@ -1061,11 +1061,11 @@
       },
       "BronzeObjectID": {
         "type": "string",
-        "defaultValue": "c6c5024f-de55-45ca-a79a-decbe16235e3"
+        "defaultValue": ""
       },
       "BronzeWorkspaceID": {
         "type": "string",
-        "defaultValue": "8d8d00a7-0e8a-4e3b-8c0e-8dcafac7adec"
+        "defaultValue": ""
       }
     },
     "variables": {
