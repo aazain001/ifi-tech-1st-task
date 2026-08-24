@@ -93,7 +93,10 @@
             "value": "@pipeline().parameters.ComputeName",
             "type": "Expression"
           },
-          "workspaceId": "8d8d00a7-0e8a-4e3b-8c0e-8dcafac7adec",
+          "workspaceId": {
+            "value": "@pipeline().parameters.SilverWorkspaceID",
+            "type": "Expression"
+          },
           "parameters": {
             "L1TransformInstanceID": {
               "value": {
