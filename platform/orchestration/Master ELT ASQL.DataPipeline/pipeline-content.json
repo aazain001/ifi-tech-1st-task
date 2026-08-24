@@ -10,7 +10,10 @@
             "storedProcedureParameters": {
               "MaxIngestInstance": {
                 "type": "Int32",
-                "value": "100"
+                "value": {
+                  "value": "@pipeline().parameters.MaxIngestInstance",
+                  "type": "Expression"
+                }
               },
               "SourceSystemName": {
                 "type": "String",
@@ -33,7 +36,7 @@
           "datasetSettings": {
             "type": "AzureSqlTable",
             "typeProperties": {
-              "database": "controlDB-78d6902e-70ea-4fb0-b51e-af3f2aaee3b7"
+              "database": "@pipeline().parameters.ControlDatabase"
             },
             "schema": [],
             "externalReferences": {
@@ -193,6 +196,10 @@
                   "BronzeWorkspaceID": {
                     "value": "@pipeline().parameters.BronzeWorkspaceID",
                     "type": "Expression"
+                  },
+                  "ControlDatabase": {
+                    "value": "@pipeline().parameters.ControlDatabase",
+                    "type": "Expression"
                   }
                 },
                 "waitOnCompletion": true
@@ -231,7 +238,10 @@
               "value": "@pipeline().parameters.StreamName",
               "type": "Expression"
             },
-            "MaxTransformInstance": 100,
+            "MaxTransformInstance": {
+              "value": "@pipeline().parameters.MaxTransformInstance",
+              "type": "Expression"
+            },
             "DelayL1TransformationFlag": {
               "value": "@pipeline().parameters.DelayTransformation",
               "type": "Expression"
@@ -242,6 +252,10 @@
             },
             "SilverWorkspaceID": {
               "value": "@pipeline().parameters.SilverWorkspaceID",
+              "type": "Expression"
+            },
+            "ControlDatabase": {
+              "value": "@pipeline().parameters.ControlDatabase",
               "type": "Expression"
             }
           },
@@ -289,8 +303,19 @@
       "SilverWorkspaceID": {
         "type": "string",
         "defaultValue": "8d8d00a7-0e8a-4e3b-8c0e-8dcafac7adec"
+      },
+      "ControlDatabase": {
+        "type": "string",
+        "defaultValue": "controlDB-78d6902e-70ea-4fb0-b51e-af3f2aaee3b7"
+      },
+      "MaxIngestInstance": {
+        "type": "int",
+        "defaultValue": 100
+      },
+      "MaxTransformInstance": {
+        "type": "int",
+        "defaultValue": 100
       }
-     
     }
   }
 }
